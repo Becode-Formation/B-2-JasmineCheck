@@ -1,17 +1,43 @@
 let selectElementsStartingWithA = (array) => {
-    return 'Write your method here';
+    let elt = []
+    array.forEach(element => {
+        if(element.startsWith("a")){
+            elt.push(element)
+        }
+    });
+    return elt;
 }
 
 let selectElementsStartingWithVowel = (array) => {
-    return 'Write your method here';
+    let names = []
+    let vowels = ["a", "e", "i", "u", "o"]
+    array.forEach(element => {
+        for(let i =0; i < vowels.length; i++)
+        if(element.startsWith(vowels[i])){
+            names.push(element)
+        }
+    })
+    return names
 }
 
 let removeNullElements = (array) => {
-    return 'Write your method here';
+    let newArray = []
+    array.forEach(element => {
+        if(element != null){
+            newArray.push(element)
+        }
+    })
+    return newArray;
 }
 
 let removeNullAndFalseElements = (array) => {
-    return 'Write your method here';
+    let newArray = []
+    array.forEach(element => {
+        if(element !== null && element !== false){
+            newArray.push(element)
+        }
+    })
+    return newArray;
 }
 
 let reverseWordsInArray = (array) => {
