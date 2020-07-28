@@ -1,7 +1,7 @@
 let selectElementsStartingWithA = (array) => {
     let elt = []
     array.forEach(element => {
-        if(element.startsWith("a")){
+        if (element.startsWith("a")) {
             elt.push(element)
         }
     });
@@ -12,10 +12,10 @@ let selectElementsStartingWithVowel = (array) => {
     let names = []
     let vowels = ["a", "e", "i", "u", "o"]
     array.forEach(element => {
-        for(let i =0; i < vowels.length; i++)
-        if(element.startsWith(vowels[i])){
-            names.push(element)
-        }
+        for (let i = 0; i < vowels.length; i++)
+            if (element.startsWith(vowels[i])) {
+                names.push(element)
+            }
     })
     return names
 }
@@ -23,7 +23,7 @@ let selectElementsStartingWithVowel = (array) => {
 let removeNullElements = (array) => {
     let newArray = []
     array.forEach(element => {
-        if(element != null){
+        if (element != null) {
             newArray.push(element)
         }
     })
@@ -33,7 +33,7 @@ let removeNullElements = (array) => {
 let removeNullAndFalseElements = (array) => {
     let newArray = []
     array.forEach(element => {
-        if(element !== null && element !== false){
+        if (element !== null && element !== false) {
             newArray.push(element)
         }
     })
@@ -41,75 +41,179 @@ let removeNullAndFalseElements = (array) => {
 }
 
 let reverseWordsInArray = (array) => {
-    return 'Write your method here';
+    // let newArray = []
+    // array.forEach(elt => {
+    //     let str = elt
+    //     let splitArray = str.split("")
+    //     splitArray.reverse()
+    //     str = splitArray.join("")
+    //     newArray.push(str)
+    // })
+    let newArray = [];
+    array.forEach(element => {
+        newArray.push(element.split("").reverse().join(""));
+    })
+    return newArray;
 }
 
 let everyPossiblePair = (array) => {
-    return 'Write your method here';
+    // let firstArray = [array[2], array[0]]
+    // let secondArray = [array[2], array[1]]
+    // let thirdArray = [array[0], array[1]]
+    // let newArray = []
+    // newArray.push(firstArray, secondArray, thirdArray)
+    let paired = []
+    array.sort();
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            paired.push([array[i], array[j]]);
+        }
+    }
+    return paired;
 }
 
 let allElementsExceptFirstThree = (array) => {
-    return 'Write your method here';
+    let greaterArray = []
+    array.forEach(elt => {
+        if (elt > 3) {
+            greaterArray.push(elt)
+        }
+    })
+    return greaterArray;
 }
 
 let addElementToBeginning = (array, element) => {
-    return 'Write your method here';
+    array.unshift(element)
+    return array;
 }
 
 let sortByLastLetter = (array) => {
-    return 'Write your method here';
+    let sortArray = []
+    let tempArray = []
+    array.forEach(element => {
+        tempArray.push(element.split("").reverse().join(""))
+        tempArray.sort();
+    })
+    tempArray.forEach(elt => {
+        sortArray.push(elt.split("").reverse().join(""))
+    })
+    return sortArray;
 }
 
 let getFirstHalf = (string) => {
-    return 'Write your method here';
+    let half = Math.round(string.length / 2)
+    return string.substr(0, half);
 }
 
 let makeNegative = (number) => {
-    return 'Write your method here';
+
+    return -Math.abs(number);
 }
 
 let numberOfPalindromes = (array) => {
-    return 'Write your method here';
+    let nbr = 0
+    array.forEach(elt => {
+        let tempArray = []
+        tempArray.push(elt.split("").reverse().join(""))
+        if (elt === tempArray[0]) {
+            console.log(tempArray[0])
+            nbr += 1
+        }
+    })
+    return nbr;
 }
 
 let shortestWord = (array) => {
-    return 'Write your method here';
+    let shortestWord = array[0]
+    array.forEach(elt => {
+        if (elt.length < shortestWord.length) {
+            shortestWord = elt
+        }
+    })
+    return shortestWord;
 }
 
 let longestWord = (array) => {
-    return 'Write your method here';
+    let longestWordArray = array[0]
+    array.forEach(elt => {
+        if (elt.length > longestWordArray.length) {
+            longestWordArray = elt
+        }
+    })
+    return longestWordArray;
 }
 
 let sumNumbers = (array) => {
-    return 'Write your method here';
+    let sum = 0
+    array.forEach(elt => {
+        sum += elt
+    })
+    return sum;
 }
 
 let repeatElements = (array) => {
-    return 'Write your method here';
+    array.forEach(elt => {
+        array.push(elt)
+    })
+    return array
 }
 
 let stringToNumber = (string) => {
-    return 'Write your method here';
+    return parseInt(string);
 }
 
 let calculateAverage = (array) => {
-    return 'Write your method here';
+    let average = 0
+    let sum = 0
+    array.forEach(element => {
+        sum += element
+        average = sum / array.length
+    });
+    return average;
 }
 
 let getElementsUntilGreaterThanFive = (array) => {
-    return 'Write your method here';
+    let greaterFive = []
+    for (let i = 0; i < array.length; i++) {
+        if (i <= 5) {
+            greaterFive.push(array[i])
+        }
+    }
+    return greaterFive;
 }
 
 let convertArrayToObject = (array) => {
-    return 'Write your method here';
+    let object = {}
+    for (let i = 0; i < array.length; i++) {
+        object[array[i]] = array[i + 1]
+        i++
+    }
+    return object;
 }
 
 let getAllLetters = (array) => {
-    return 'Write your method here';
+    let lettersArray = []
+    let newArray = []
+    str = ""
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            lettersArray.push(array[i][j])
+            lettersArray.sort()
+        }
+    }
+    let i = 0
+    lettersArray.forEach(elt => {
+        i++
+        if (elt != lettersArray[i]) {
+            newArray.push(elt)
+        }
+    })
+    return newArray;
 }
 
 let swapKeysAndValues = (object) => {
-    return 'Write your method here';
+
+    return invertObject;
 }
 
 let sumKeysAndValues = (object) => {
