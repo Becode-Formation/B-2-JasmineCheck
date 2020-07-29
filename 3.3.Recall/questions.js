@@ -212,48 +212,88 @@ let getAllLetters = (array) => {
 }
 
 let swapKeysAndValues = (object) => {
-
-    return invertObject;
+    const swap = {}
+    Object.keys(object).forEach(key => {
+        swap[object[key]] = key
+    })
+    return swap;
 }
 
 let sumKeysAndValues = (object) => {
-    return 'Write your method here';
+    let sum = 0
+    Object.keys(object).forEach(key => {
+        key = parseInt(key)
+        value = parseInt(object[key])
+        sum += key + value
+    })
+    return sum;
 }
 
 let removeCapitals = (string) => {
-    return 'Write your method here';
+    return string.replace(/[A-Z]/g, "");
 }
 
 let roundUp = (number) => {
-    return 'Write your method here';
+    return Math.ceil(number);
 }
 
 let formatDateNicely = (date) => {
-    return 'Write your method here';
+    let day = date.getDay()
+    let month = date.getDate()
+    console.log(day, month)
+    let putZero = (value) => {
+        if (value < 10) {
+            value = `0${value}`
+        }
+        return value
+    }
+    return `${putZero(month)}/${putZero(day)}/${date.getFullYear()}`;
 }
 
 let getDomainName = (string) => {
-    return 'Write your method here';
+    let mail = string.split("@")
+    let str = mail[1]
+    let strSplit = str.split(".")
+    strSplit.pop()
+    let domaine = strSplit.join(".")
+    return domaine;
 }
 
 let titleize = (string) => {
+    console.log(string)
     return 'Write your method here';
 }
 
 let checkForSpecialCharacters = (string) => {
-    return 'Write your method here';
+    let reg = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+
+    return reg.test(string);
 }
 
 let squareRoot = (number) => {
-    return 'Write your method here';
+    return Math.sqrt(number);
 }
 
 let factorial = (number) => {
-    return 'Write your method here';
+    let factorize = (number) => {
+        if (number < 0) {
+            return -1
+        } else if (number === 0) {
+            return 1
+        } else {
+            return (number * factorize(number - 1))
+        }
+    }
+    return factorize(number);
 }
 
 let findAnagrams = (string) => {
-    return 'Write your method here';
+    let anagram = ""
+    for (let i = 0; i < string.length; i++) {
+        let rdn = Math.round(Math.random() * string.length)
+        anagram += string[rdn]
+    }
+    return anagram;
 }
 
 let convertToCelsius = (number) => {
@@ -261,5 +301,16 @@ let convertToCelsius = (number) => {
 }
 
 let letterPosition = (array) => {
-    return 'Write your method here';
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", " x", "y", "z"]
+    let numbers = []
+    array.forEach(letter => {
+        for (let i = 0; i < alphabet.length; i++) {
+            console.log(letter, alphabet[i])
+            if (array[letter] === alphabet[i]) {
+
+                numbers.push(i)
+            }
+        }
+    })
+    return array;
 }
