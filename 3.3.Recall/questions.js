@@ -260,7 +260,8 @@ let getDomainName = (string) => {
 }
 
 let titleize = (string) => {
-    console.log(string)
+    let words = ["lion", "witch"]
+
     return 'Write your method here';
 }
 
@@ -288,29 +289,37 @@ let factorial = (number) => {
 }
 
 let findAnagrams = (string) => {
-    let anagram = ""
-    for (let i = 0; i < string.length; i++) {
-        let rdn = Math.round(Math.random() * string.length)
-        anagram += string[rdn]
+    let getAllAnagrams = (string) => {
+        if (string.length === 1)
+            return string
+        let anagrams = []
+        for (let i = 0; i < string.length; i++) {
+            let letter = string[0]
+            let nString = getAllAnagrams(string.slice(1, string.length))
+            for (let j = 0; j < nString.length; j++)
+                anagrams.push(letter + nString[j])
+            string = string.slice(1, string.length) + letter
+        }
+        return anagrams
     }
-    return anagram;
+    return getAllAnagrams(string)
 }
 
 let convertToCelsius = (number) => {
-    return 'Write your method here';
+    number = Math.round((number - 32) * 5 / 9)
+    return number;
 }
 
 let letterPosition = (array) => {
-    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", " x", "y", "z"]
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     let numbers = []
     array.forEach(letter => {
+        letter = letter.toLowerCase()
         for (let i = 0; i < alphabet.length; i++) {
-            console.log(letter, alphabet[i])
-            if (array[letter] === alphabet[i]) {
-
-                numbers.push(i)
+            if (letter === alphabet[i]) {
+                numbers.push(i + 1)
             }
         }
     })
-    return array;
+    return numbers;
 }
