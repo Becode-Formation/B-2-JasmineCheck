@@ -260,9 +260,25 @@ let getDomainName = (string) => {
 }
 
 let titleize = (string) => {
-    let words = ["lion", "witch"]
+    //Split la string
+    //Pour chaque élement du tableau
+        // Si l'élément est le premier ou le 3eme ou le dernier ou commence après un point
+        //Pour chaque lettre de l'élement
+            //Si c'est la première lettre 
+                // Mettre en Uppercase
+    //Reassembler en string
 
-    return 'Write your method here';
+    let newString = string.split(" ")
+    for(let i = 0; i < newString.length; i ++){
+        if(i === 0 || i === 3 || i === 6 || i === 1){
+            console.log(newString[i])
+           newString[i] =  newString[i][0].toUpperCase() + newString[i].substr(1)
+        } else if( newString[i - 1].includes('.' )){
+            newString[i] =  newString[i][0].toUpperCase() + newString[i].substr(1)
+        }
+    }
+
+    return newString.join(" ");
 }
 
 let checkForSpecialCharacters = (string) => {
